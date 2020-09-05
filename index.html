@@ -9,8 +9,8 @@
     <script src="leaflet.js"></script>
     <script src="provider.js"></script>
     <script src="data/dpto_cauca.geojson"></script>
-    <script src="data/quinchas_1.geojson"></script>
-    <script src="data/quinchas_2.geojson"></script>        
+    <script src="data/cerro_01.geojson"></script>
+    <script src="data/cerro_03.geojson"></script>        
     <script src="data/predial.geojson"></script>
     <script src="data/recorrido.geojson"></script>
     <script src="data/vias_2.geojson"></script>
@@ -75,7 +75,16 @@
 
 var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
 
-
+function cerroStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'red',
+        dashArray: '6',
+        fillOpacity: 0.1
+    };
+}
 
     function recorridoStyle(feature) {
     return {
@@ -88,13 +97,35 @@ var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> 
     };
 }
     var recorrido =L.geoJson(recorrido,{style: recorridoStyle}).addTo(mymap);  
-            
+    
+         
+    function cerroStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 1,
+        opacity: 1,
+        color: 'red',
+        dashArray: '2',
+        fillOpacity: 0.1
+    };
+}
+    var cerro_01 =L.geoJson(cerro_01,{style: cerroStyle}).addTo(mymap);  
+    var cerro_03 =L.geoJson(cerro_03,{style: cerroStyle}).addTo(mymap);  
 
     var betzabeIcon = L.icon({
         iconUrl: './images/betzabe.png',
  
         iconSize: [40, 71],
         iconAnchor: [20, 64],
+
+
+
+    });
+    var cerroIcon = L.icon({
+        iconUrl: './images/cerro.png',
+ 
+        iconSize: [50, 50],
+        iconAnchor: [20, 54],
 
 
 
@@ -180,6 +211,14 @@ var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> 
         myMarker7.addTo(mymap);
         myMarker7.bindPopup(
           '<b>Finca tradicional Betzabé, resistir al monocultivo de caña</b> <div><image style="width: 100%" <img src="images/img_betzabe_2.jpg"/> <p> </p></div>',
+            {minWidth:300}
+        );
+        var point8 = [1.995652, -76.946112];
+        var marker8 =L.marker(point8, {icon: cerroIcon}).addTo(mymap);
+        var myMarker8 = L.marker(point8, {icon: cerroIcon});
+        myMarker8.addTo(mymap);
+        myMarker8.bindPopup(
+          '<b>Cerro tutelar de Lerma</b> <div><image style="width: 100%" <img src="images/img_cerro_2.jpg"/> <p> </p></div>',
             {minWidth:300}
         );
 
