@@ -13,6 +13,7 @@
     <script src="data/cerro_03.geojson"></script>        
     <script src="data/predial.geojson"></script>
     <script src="data/recorrido.geojson"></script>
+    <script src="data/la_carolina.geojson"></script>
     <script src="data/vias_2.geojson"></script>
     <script src="data/sendero_a.geojson"></script>
     <script src="data/sendero_b.geojson"></script>
@@ -26,21 +27,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.rtl.css" />
 
-    <style>
-        .leaflet-popup-content-wrapper {
-  background-color: rgb(54, 54, 54);
-  opacity: 0.9;
-  color:#fff;
-  font-size:13px;
-  line-height:24px;
-}
-/* css to customize Leaflet default styles  */
-.popupCustom .leaflet-popup-tip,
-.popupCustom .leaflet-popup-content-wrapper {
-    background: #e0e0e0;
-    color: #c2c2c2;
-}
-    </style>
 </head>
 <body>
     <div id='mapa'></div>
@@ -98,6 +84,18 @@ function cerroStyle(feature) {
 }
     var recorrido =L.geoJson(recorrido,{style: recorridoStyle}).addTo(mymap);  
     
+    function carolinaStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'red',
+        dashArray: '6',
+        fillOpacity: 0.1
+    };
+}
+    var la_carolina =L.geoJson(la_carolina,{style: carolinaStyle}).addTo(mymap);  
+    
          
     function cerroStyle(feature) {
     return {
@@ -115,7 +113,7 @@ function cerroStyle(feature) {
     var betzabeIcon = L.icon({
         iconUrl: './images/betzabe.png',
  
-        iconSize: [40, 71],
+        iconSize: [50, 70],
         iconAnchor: [20, 64],
 
 
@@ -123,6 +121,16 @@ function cerroStyle(feature) {
     });
     var cerroIcon = L.icon({
         iconUrl: './images/cerro.png',
+ 
+        iconSize: [50, 50],
+        iconAnchor: [20, 54],
+
+
+
+    });
+
+    var quebradaIcon = L.icon({
+        iconUrl: './images/quebrada.png',
  
         iconSize: [50, 50],
         iconAnchor: [20, 54],
@@ -218,10 +226,20 @@ function cerroStyle(feature) {
         var myMarker8 = L.marker(point8, {icon: cerroIcon});
         myMarker8.addTo(mymap);
         myMarker8.bindPopup(
-          '<b>Cerro tutelar de Lerma</b> <div><image style="width: 100%" <img src="images/img_cerro_2.jpg"/> <p> </p></div>',
+          '<b>Cerro tutelar de Lerma</b> <div><image style="width: 100%" <img src="images/img_cerro.jpg"/> <p> </p></div>',
             {minWidth:300}
         );
 
+        var point9 = [2.056851, -76.848027];
+        var marker9 =L.marker(point9, {icon: quebradaIcon}).addTo(mymap);
+        var myMarker9 = L.marker(point9, {icon: quebradaIcon});
+        myMarker9.addTo(mymap);
+        myMarker9.bindPopup(
+          '<b>Bosque La Carolina</b> <div><image style="width: 100%" <img src="images/img_la_carolina.jpg"/> <p> </p></div>',
+            {minWidth:300}
+        );
+
+   
    
 var polygon = L.polygon([
     [3.227340, -76.331822],
