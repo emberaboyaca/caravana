@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="Stylesheet" href="leaflet.css">
+    <link rel="Stylesheet" href="ejemplo.css">
+    <script src="leaflet.js"></script>
+    <script src="provider.js"></script>
+    <script src="data/dpto_guaviare.geojson"></script>
+    <script src="data/quinchas_1.geojson"></script>
+    <script src="data/quinchas_2.geojson"></script>        
+    <script src="data/predial.geojson"></script>
+    <script src="data/vias_1.geojson"></script>
+    <script src="data/vias_2.geojson"></script>
+    <script src="data/sendero_a.geojson"></script>
+    <script src="data/sendero_b.geojson"></script>
+    <script src="data/vias_1.geojson"></script>
+    <script src="data/vias_2.geojson"></script>
+    <script src="data/resguardos_guaviare.geojson"></script>
+    <script src="data/resguardos_jiw.geojson"></script>
+    <script src="data/rios_san_juan.geojson"></script>
+    <script src="data/centros_pobla.geojson"></script>
+    <script src="data/produccion_petroleo.geojson"></script>
+</head>
+<body>
+
+<div id='mapa'></div>
+<script>
+   
+   var mymap = L.map('mapa').setView([2.824112, -72.132499],10);
+   
+
+
+    var satelite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: ''
+    }).addTo(mymap);
+    
+
+    var OSM = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+	maxZoom: 20,
+	attribution: '&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(mymap);
+    
+    function guaviareStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 0.1
+    };
+}
+    var guaviare =L.geoJson(guaviare,{style: guaviareStyle}).addTo(mymap);    
+
+    function senderoStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'red',
+        dashArray: '4',
+        fillOpacity: 0.1
+    };
+}
+function petroleoStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 0.1
+    };
+}
+    var petroleo =L.geoJson(petroleo,{style: petroleoStyle}).addTo(mymap);    
+
+    function senderoStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'red',
+        dashArray: '4',
+        fillOpacity: 0.1
+    };
+}
+
+function resguardos_guaviareStyle(feature){
+            return {
+                fillColor : 'green',
+                weight : 2, 
+                opacity : 1,
+                color : 'black', 
+                dashArray : 1, 
+                fillOpacity : 0.7
+            }
+        }
+
+    var resguardos_guaviare = L.geoJson(resguardos_guaviare,{style : resguardos_guaviareStyle}).addTo(mymap);
+
+    function jiwStyle(feature){
+            return {
+                fillColor : 'red',
+                weight : 2, 
+                opacity : 1,
+                color : 'black', 
+                dashArray : 1, 
+                fillOpacity : 0.7
+            }
+        }
+
+    var jiw = L.geoJson(jiw,{style : jiwStyle}).addTo(mymap);
+
+
+        function rios_san_juanStyle(feature){
+            return {
+                fillColor : 'green',
+                weight : 1, 
+                opacity : 0.99,
+                color : 'blue', 
+                dashArray : 0, 
+                fillOpacity : 0.5
+            }
+        }
+
+        var rios_san_juan = L.geoJson(
+        rios_san_juan,
+        {style : rios_san_juanStyle}
+        ).addTo(mymap);
+
+
+
+    var sendero_a =L.geoJson(sendero_a,{style: senderoStyle}).addTo(mymap);  
+    var sendero_b =L.geoJson(sendero_b,{style: senderoStyle}).addTo(mymap);  
+
+
+    function viasStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 0.8,
+        color: 'red',
+        dashArray: '0',
+        fillOpacity: 0.1
+    };
+}
+    var vias_a =L.geoJson(viasa,{style: viasStyle}).addTo(mymap); 
+    var vias_b =L.geoJson(viasb,{style: viasStyle}).addTo(mymap);  
+            
+    function quinchasStyle(feature) {
+    return {
+        fillColor: 'green',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 0.5
+    };
+}
+
+    var quinchas =L.geoJson(quinchasa,{style: quinchasStyle}).addTo(mymap); 
+    var quinchasb =L.geoJson(quinchasb,{style: quinchasStyle}).addTo(mymap);  
+    
+    function predialStyle(feature) {
+    return {
+        fillColor: 'red',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 1
+    };
+}
+    var predial =L.geoJson(predial,{style: predialStyle}).addTo(mymap); 
+
+    var chivaIcon = L.icon({
+    iconUrl: './images/chiva.png',
+    shadowUrl: './images/chiva_sombra.png',
+
+    iconSize:     [60, 61], // size of the icon
+    shadowSize:   [70, 61], // size of the shadow
+    iconAnchor:   [20, 58], // point of the icon which will correspond to marker's location
+    shadowAnchor: [6, 70],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+        var point = [2.568723, -72.642379];
+        var marker =L.marker(point).addTo(mymap);
+        var myMarker = L.marker(point);
+        myMarker.addTo(mymap);
+        myMarker.bindPopup(
+            '<b>San José del Guaviare</b>',
+            {minWidth:300}
+        );
+   
+        var point2 = [2.546911, -72.682785];
+        var marker2 =L.marker(point2).addTo(mymap);
+        var myMarker2 = L.marker(point2);
+        myMarker2.addTo(mymap);
+        myMarker2.bindPopup(
+            '<b>La María</b>',
+            {minWidth:300}
+        );
+        var point3 = [2.593308, -72.569382];
+        var marker3 =L.marker(point3).addTo(mymap);
+        var myMarker3 = L.marker(point3);
+        myMarker3.addTo(mymap);
+        myMarker3.bindPopup(
+            '<b>Barrancón</b>',
+            {minWidth:300}
+        );
+
+        var point4 = [2.625139, -72.488952];
+        var marker4 =L.marker(point4).addTo(mymap);
+        var myMarker4 = L.marker(point4);
+        myMarker4.addTo(mymap);
+        myMarker4.bindPopup(
+            '<b>La Fuga</b>',
+            {minWidth:300}
+        );
+        var point5 = [2.739350, -72.510978];
+        var marker5 =L.marker(point5).addTo(mymap);
+        var myMarker5 = L.marker(point5);
+        myMarker5.addTo(mymap);
+        myMarker5.bindPopup(
+            '<b>Caño La Sal</b>',
+            {minWidth:300}
+        );
+        var point6 = [2.791188, -71.781079];
+        var marker6 =L.marker(point6).addTo(mymap);
+        var myMarker6 = L.marker(point6);
+        myMarker6.addTo(mymap);
+        myMarker6.bindPopup(
+            '<b>Barranco Colorado</b>',
+            {minWidth:300}
+        );
+        var point7 = [2.792346, -71.624067];
+        var marker7 =L.marker(point7).addTo(mymap);
+        var myMarker7 = L.marker(point7);
+        myMarker7.addTo(mymap);
+        myMarker7.bindPopup(
+            '<b>Barranco Ceiba</b>',
+            {minWidth:300}
+        );
+        var point8 = [2.917086, -71.603338];
+        var greenIcon =L.marker(point8).addTo(mymap);
+        var myMarker8 = L.marker(point8);
+        myMarker8.addTo(mymap);
+        myMarker8.bindPopup(
+            '<b>Mocuare</b>',
+            {minWidth:300}
+        );
+    
+
+
+
+    var baseMaps = {
+    "Imagen satelital": satelite,
+    "Open Street Maps": OSM
+
+    };
+
+    var overlayMaps = {
+    "Guaviare": guaviare,
+    "Resguardos Guaviare": resguardos_guaviare,
+    "Resguardos Jiw": jiw
+    
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+    L.control.scale().addTo(mymap);
+
+
+
+
+</script>
+
+</body>
+</html>
