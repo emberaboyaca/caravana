@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resguardos Guaviare</title>
+    <title>Document</title>
     <link rel="Stylesheet" href="leaflet.css">
     <link rel="Stylesheet" href="ejemplo.css">
     <script src="leaflet.js"></script>
@@ -20,6 +20,7 @@
     <script src="data/vias_2.geojson"></script>
     <script src="data/resguardos_guaviare.geojson"></script>
     <script src="data/resguardos_jiw.geojson"></script>
+    <script src="data/resguardos_jiw_1.geojson"></script>
     <script src="data/rios_san_juan.geojson"></script>
     <script src="data/centros_pobla.geojson"></script>
     <script src="data/produccion_petroleo.geojson"></script>
@@ -113,7 +114,7 @@ function resguardos_guaviareStyle(feature){
         }
 
     var jiw = L.geoJson(jiw,{style : jiwStyle}).addTo(mymap);
-
+    var jiw_1 = L.geoJson(jiw_1,{style : jiwStyle}).addTo(mymap);
 
         function rios_san_juanStyle(feature){
             return {
@@ -201,7 +202,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker2 = L.marker(point2);
         myMarker2.addTo(mymap);
         myMarker2.bindPopup(
-            '<b>La María</b>',
+            '<b>La María /Wuej Lajt/</b>',
             {minWidth:300}
         );
         var point3 = [2.593308, -72.569382];
@@ -209,7 +210,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker3 = L.marker(point3);
         myMarker3.addTo(mymap);
         myMarker3.bindPopup(
-            '<b>Barrancón</b>',
+            '<b>Barrancón /Bakam/</b>',
             {minWidth:300}
         );
 
@@ -218,7 +219,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker4 = L.marker(point4);
         myMarker4.addTo(mymap);
         myMarker4.bindPopup(
-            '<b>La Fuga</b>',
+            '<b>La Fuga /Char-on laja char-on/</b>',
             {minWidth:300}
         );
         var point5 = [2.739350, -72.510978];
@@ -226,7 +227,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker5 = L.marker(point5);
         myMarker5.addTo(mymap);
         myMarker5.bindPopup(
-            '<b>Caño La Sal</b>',
+            '<b>Caño La Sal /Masal/</b>',
             {minWidth:300}
         );
         var point6 = [2.791188, -71.781079];
@@ -234,7 +235,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker6 = L.marker(point6);
         myMarker6.addTo(mymap);
         myMarker6.bindPopup(
-            '<b>Barranco Colorado</b>',
+            '<b>Barranco Colorado /Karnüm/</b>',
             {minWidth:300}
         );
         var point7 = [2.792346, -71.624067];
@@ -242,7 +243,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker7 = L.marker(point7);
         myMarker7.addTo(mymap);
         myMarker7.bindPopup(
-            '<b>Barranco Ceiba</b>',
+            '<b>Barranco Ceiba /Nawel jalpa/</b>',
             {minWidth:300}
         );
         var point8 = [2.917086, -71.603338];
@@ -250,7 +251,15 @@ function resguardos_guaviareStyle(feature){
         var myMarker8 = L.marker(point8);
         myMarker8.addTo(mymap);
         myMarker8.bindPopup(
-            '<b>Mocuare</b>',
+            '<b>Mocuare /Makuer/</b>',
+            {minWidth:300}
+        );
+        var point9 = [2.900489, -72.199459];
+        var greenIcon =L.marker(point9).addTo(mymap);
+        var myMarker9 = L.marker(point9);
+        myMarker9.addTo(mymap);
+        myMarker9.bindPopup(
+            '<b>/Naexal Lajt/ acuerdo No. 75 de 2018</b>',
             {minWidth:300}
         );
     
