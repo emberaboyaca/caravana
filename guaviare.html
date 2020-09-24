@@ -6,23 +6,14 @@
     <title>Resguardos Jiw</title>
     <link rel="Stylesheet" href="leaflet.css">
     <link rel="Stylesheet" href="ejemplo.css">
+    <link rel="Stylesheet" href="leaflet.leyend.css">
     <script src="leaflet.js"></script>
     <script src="provider.js"></script>
-    <script src="data/dpto_guaviare.geojson"></script>
-    <script src="data/quinchas_1.geojson"></script>
-    <script src="data/quinchas_2.geojson"></script>        
-    <script src="data/predial.geojson"></script>
-    <script src="data/vias_1.geojson"></script>
-    <script src="data/vias_2.geojson"></script>
-    <script src="data/sendero_a.geojson"></script>
-    <script src="data/sendero_b.geojson"></script>
-    <script src="data/vias_1.geojson"></script>
-    <script src="data/vias_2.geojson"></script>
+    <script src="leaflet.leyend.js"></script>
+    <script src="data/dpto_guaviare.geojson"></script>      
     <script src="data/resguardos_guaviare.geojson"></script>
     <script src="data/resguardos_jiw.geojson"></script>
     <script src="data/resguardos_jiw_1.geojson"></script>
-    <script src="data/rios_san_juan.geojson"></script>
-    <script src="data/centros_pobla.geojson"></script>
     <script src="data/lindosa.geojson"></script>
 </head>
 <body>
@@ -137,19 +128,7 @@ function resguardos_guaviareStyle(feature){
     var sendero_a =L.geoJson(sendero_a,{style: senderoStyle}).addTo(mymap);  
     var sendero_b =L.geoJson(sendero_b,{style: senderoStyle}).addTo(mymap);  
 
-
-    function viasStyle(feature) {
-    return {
-        fillColor: 'red',
-        weight: 2,
-        opacity: 0.8,
-        color: 'red',
-        dashArray: '0',
-        fillOpacity: 0.1
-    };
-}
-    var vias_a =L.geoJson(viasa,{style: viasStyle}).addTo(mymap); 
-    var vias_b =L.geoJson(viasb,{style: viasStyle}).addTo(mymap);  
+ 
             
     function lindosaStyle(feature) {
     return {
@@ -287,17 +266,54 @@ function resguardos_guaviareStyle(feature){
     };
 
     var overlayMaps = {
-    "Guaviare": guaviare,
-    "Resguardos Guaviare": resguardos_guaviare,
-    "Resguardos Jiw": jiw,
-    "Resguardo Jiw 2018": jiw_1,
-    "Serranía de La Lindosa": lindosa
+
     
     };
 
     L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 
     L.control.scale().addTo(mymap);
+
+    L.control.Legend({
+    position: "bottomright",
+    title:"Convenciones",
+    legends: [{
+        label: "Resguardos Jiw",
+        type: "image",
+        url: "images/marker-icon.png",
+        layers: [point, point10],
+        inactive: false,
+        
+    },{
+                label: "Resguardos Jiw",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#FF0000",
+                weight: 2,
+                layers: [jiw, jiw_1],
+                inactive: false,
+    
+            },{
+                label: "Serranía La Lindosa",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#E371FE",
+                weight: 2,
+                layers: [lindosa],
+                inactive: false,
+            },{
+                label: "Resguardos indígenas",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#1FB323",
+                weight: 2,
+                layers: [resguardos_guaviare],
+                inactive: false,
+            },]
+}).addTo(mymap);
 
 
 
