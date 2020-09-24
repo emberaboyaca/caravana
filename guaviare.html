@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resguardos Jiw</title>
     <link rel="Stylesheet" href="leaflet.css">
     <link rel="Stylesheet" href="ejemplo.css">
     <script src="leaflet.js"></script>
@@ -23,7 +23,6 @@
     <script src="data/resguardos_jiw_1.geojson"></script>
     <script src="data/rios_san_juan.geojson"></script>
     <script src="data/centros_pobla.geojson"></script>
-    <script src="data/produccion_petroleo.geojson"></script>
     <script src="data/lindosa.geojson"></script>
 </head>
 <body>
@@ -210,7 +209,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker3 = L.marker(point3);
         myMarker3.addTo(mymap);
         myMarker3.bindPopup(
-            '<b>Barrancón /Bakam/</b>',
+            '<b>Barrancón /Bakam/</b> <p><a href="http://www.redcolombia.org/2012/11/28/jiw-la-agonia-de-un-pueblo/"</a> Artículo Redher </p></div>',
             {minWidth:300}
         );
 
@@ -227,7 +226,7 @@ function resguardos_guaviareStyle(feature){
         var myMarker5 = L.marker(point5);
         myMarker5.addTo(mymap);
         myMarker5.bindPopup(
-            '<b>Caño La Sal /Masal/</b>',
+            '<b>Caño La Sal /Masal/</b><a href= "https://www.elespectador.com/noticias/medio-ambiente/jiw-un-pueblo-acorralado-en-su-territorio/"</a> Noticia Espectador</div>',
             {minWidth:300}
         );
         var point6 = [2.791188, -71.781079];
@@ -259,9 +258,25 @@ function resguardos_guaviareStyle(feature){
         var myMarker9 = L.marker(point9);
         myMarker9.addTo(mymap);
         myMarker9.bindPopup(
-            '<b>/Naexal Lajt/</b><div><p><a href="https://www.agenciadetierras.gov.co/wp-content/uploads/2019/08/ACUERDO-75.pdf"</a>acuerdo No. 75 de 2018 </p></div>',            {minWidth:300}
+            '<b>Zaragozas /Naexal Lajt/</b><div><p><a href="https://www.agenciadetierras.gov.co/wp-content/uploads/2019/08/ACUERDO-75.pdf"</a> Acuerdo No. 75 de 2018 </p></div>',
+            {minWidth:300}
         );
-    
+        var point10 = [2.741731, -72.648567];
+        var greenIcon =L.marker(point10).addTo(mymap);
+        var myMarker10 = L.marker(point10);
+        myMarker10.addTo(mymap);
+        myMarker10.bindPopup(
+            '<b>Luna Roja </b> <p><a href= "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/assessments/260215%20Informe%20MIRA%20Luna%20Roja.pdf"</a>Documento</p><p><a href=https://www.wayuunaiki.com.ve/titulares/campesinos-vs-indigenas-la-pelea-por-las-tierras-en-meta-y-guaviare/"</a>noticia</p><p><a href=https://issuu.com/laavenida/docs/art2"</a>noticia</p></div>',
+            {minWidth:300}
+        );
+        var point11 = [2.620061, -72.825854];
+        var greenIcon =L.marker(point11).addTo(mymap);
+        var myMarker11 = L.marker(point11);
+        myMarker11.addTo(mymap);
+        myMarker11.bindPopup(
+            '<b>Ceiba territoiro ancestral </b> <p><a href= "https://www.eltiempo.com/archivo/documento/CMS-13674177"</a>Noticia El Tiempo</p><a href="https://infoamazonia.org/es/2019/08/espanol-la-tierra-de-los-jiw-en-guaviare-se-acaba-a-manos-de-colonos-militares-y-grupos-ilegales/#!/map=51549&story=post-20126"</a>Documento <p><a href=https://www.parquesnacionales.gov.co/portal/es/ecoturismo/region-amazonia-y-orinoquia/parque-nacional-natural-sierra-de-la-macarena/comunidades/"</a> PNN La Macarena </p></div>',
+            {minWidth:300}
+        );
 
 
 
@@ -275,8 +290,7 @@ function resguardos_guaviareStyle(feature){
     "Guaviare": guaviare,
     "Resguardos Guaviare": resguardos_guaviare,
     "Resguardos Jiw": jiw,
-    "Resguardo Jiw 2018": jiw_1,
-    "Serranía de La Lindosa": lindosa
+    "Resguardo Jiw 2018": jiw_1
     
     };
 
