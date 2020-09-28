@@ -277,12 +277,16 @@ function resguardos_guaviareStyle(feature){
     L.control.Legend({
     position: "bottomright",
     title:"Convenciones",
-    legends: [{
-        label: "Resguardos Jiw",
-        type: "image",
-        url: "images/marker-icon.png",
-        layers: [point, point10],
-        inactive: false,
+    legends: [
+        {
+            label: "Guaviare",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#FE97A5",
+                weight: 2,
+                layers: [guaviare],
+                inactive: false,
         
     },{
                 label: "Resguardos Jiw",
