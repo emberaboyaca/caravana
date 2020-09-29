@@ -11,6 +11,7 @@
     <script src="provider.js"></script>
     <script src="leaflet.leyend.js"></script>
     <script src="data/dpto_guaviare.geojson"></script>      
+    <script src="data/meta.geojson"></script>   
     <script src="data/resguardos_guaviare.geojson"></script>
     <script src="data/resguardos_jiw.geojson"></script>
     <script src="data/resguardos_jiw_1.geojson"></script>
@@ -45,7 +46,19 @@
         fillOpacity: 0.1
     };
 }
-    var guaviare =L.geoJson(guaviare,{style: guaviareStyle}).addTo(mymap);    
+    var guaviare =L.geoJson(guaviare,{style: guaviareStyle}).addTo(mymap);   
+    
+    function metaStyle(feature) {
+    return {
+        fillColor: 'yellow',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 0.1
+    };
+}
+    var meta =L.geoJson(meta,{style: metaStyle}).addTo(mymap);   
 
     function senderoStyle(feature) {
     return {
@@ -286,6 +299,17 @@ function resguardos_guaviareStyle(feature){
                 fillColor: "#FE97A5",
                 weight: 2,
                 layers: [guaviare],
+                inactive: false,
+        
+    },
+    {
+            label: "Municipios Meta",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#FEF597",
+                weight: 2,
+                layers: [meta],
                 inactive: false,
         
     },{
