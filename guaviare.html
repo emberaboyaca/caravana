@@ -18,6 +18,7 @@
     <script src="data/lindosa.geojson"></script>
     <script src="data/drenaje_sencillo.geojson"></script>
     <script src="data/rio_guaviare.geojson"></script>
+    <script src="data/lagunas.geojson"></script>
 </head>
 <body>
 
@@ -309,6 +310,15 @@ function resguardos_guaviareStyle(feature){
                 weight: 2,
                 layers: [cañosLayer],
                 inactive: false,
+            }, {
+                label: "Lagunas",
+                type: "rectangle",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#0C25FF",
+                weight: 2,
+                layers: [cañosLayer],
+                inactive: false,
             }]
 }).addTo(mymap);
 
@@ -377,6 +387,14 @@ var cañosLayer = L.geoJson(
 
             var rio = L.geoJson(
             rio,
+            {
+                style : cañosStyle,
+            onEachFeature : cañosOnEachFeature, 
+            }
+            ).addTo(mymap);
+
+            var lagunas = L.geoJson(
+            lagunas,
             {
                 style : cañosStyle,
             onEachFeature : cañosOnEachFeature, 
