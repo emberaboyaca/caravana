@@ -62,18 +62,8 @@
         fillOpacity: 0.1
     };
 }
-    var meta =L.geoJson(meta,{style: metaStyle}).addTo(mymap);   
+var meta =L.geoJson(meta,{style: metaStyle}).addTo(mymap);
 
-    function senderoStyle(feature) {
-    return {
-        fillColor: 'red',
-        weight: 2,
-        opacity: 1,
-        color: 'red',
-        dashArray: '4',
-        fillOpacity: 0.1
-    };
-}
 function rioStyle(feature) {
     return {
         fillColor: 'blue',
@@ -84,7 +74,12 @@ function rioStyle(feature) {
         fillOpacity: 1
     };
 }
-    var  rio =L.geoJson(rio,{style: rioStyle}).addTo(mymap); 
+
+    var  rio =L.geoJson(rio,{style: rioStyle, onEachFeature: function(feature, layer){
+		layer.bindPopup(feature.properties["NOMBRE_GEO"])
+	}}).addTo(mymap);
+
+
 function cañosStyle(feature) {
     return {
         fillColor: 'blue',
@@ -95,7 +90,9 @@ function cañosStyle(feature) {
         fillOpacity: 1
     };
 }
-    var  caños =L.geoJson(caños,{style: cañosStyle}).addTo(mymap);    
+    var  caños =L.geoJson(caños,{style: cañosStyle, onEachFeature: function(feature, layer){
+		layer.bindPopup(feature.properties["NOMBRE_GEO"])
+	}}).addTo(mymap);    
 
     function senderoStyle(feature) {
     return {
@@ -119,7 +116,9 @@ function resguardos_guaviareStyle(feature){
             }
         }
 
-    var resguardos_guaviare = L.geoJson(resguardos_guaviare,{style : resguardos_guaviareStyle}).addTo(mymap);
+    var resguardos_guaviare = L.geoJson(resguardos_guaviare,{style : resguardos_guaviareStyle, onEachFeature: function(feature, layer){
+		layer.bindPopup(feature.properties["NOMBRE_RES"] + '<br>'+ '(' + feature.properties["PUEBLO"] +  ')')
+	}}).addTo(mymap);
 
     function jiwStyle(feature){
             return {
@@ -135,28 +134,7 @@ function resguardos_guaviareStyle(feature){
     var jiw = L.geoJson(jiw,{style : jiwStyle}).addTo(mymap);
     var jiw_1 = L.geoJson(jiw_1,{style : jiwStyle}).addTo(mymap);
 
-        function rios_san_juanStyle(feature){
-            return {
-                fillColor : 'green',
-                weight : 1, 
-                opacity : 0.99,
-                color : 'blue', 
-                dashArray : 0, 
-                fillOpacity : 0.5
-            }
-        }
-
-        var rios_san_juan = L.geoJson(
-        rios_san_juan,
-        {style : rios_san_juanStyle}
-        ).addTo(mymap);
-
-
-
-    var sendero_a =L.geoJson(sendero_a,{style: senderoStyle}).addTo(mymap);  
-    var sendero_b =L.geoJson(sendero_b,{style: senderoStyle}).addTo(mymap);  
-
- 
+       
             
     function lindosaStyle(feature) {
     return {
@@ -171,17 +149,8 @@ function resguardos_guaviareStyle(feature){
 
     var lindosa =L.geoJson(lindosa,{style: lindosaStyle}).addTo(mymap); 
     
-    function predialStyle(feature) {
-    return {
-        fillColor: 'red',
-        weight: 2,
-        opacity: 1,
-        color: 'black',
-        dashArray: '1',
-        fillOpacity: 1
-    };
-}
-    var predial =L.geoJson(predial,{style: predialStyle}).addTo(mymap); 
+
+
 
     var chivaIcon = L.icon({
     iconUrl: './images/chiva.png',
@@ -355,7 +324,25 @@ function resguardos_guaviareStyle(feature){
                 weight: 2,
                 layers: [resguardos_guaviare],
                 inactive: false,
-            },]
+            }, {
+                label: "Ríos Principales",
+                type: "polyline",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#1FB323",
+                weight: 4,
+                layers: [rio],
+                inactive: false,
+            },{
+                label: "Caños",
+                type: "polyline",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#1FB323",
+                weight: 2,
+                layers: [caños],
+                inactive: false,
+            }]
 }).addTo(mymap);
 
 
