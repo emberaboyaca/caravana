@@ -64,46 +64,7 @@
 }
 var meta =L.geoJson(meta,{style: metaStyle}).addTo(mymap);
 
-function rioStyle(feature) {
-    return {
-        fillColor: 'blue',
-        weight: 2,
-        opacity: 1,
-        color: 'blue',
-        dashArray: '1',
-        fillOpacity: 1
-    };
-}
 
-    var  rio =L.geoJson(rio,{style: rioStyle, onEachFeature: function(feature, layer){
-		layer.bindPopup(feature.properties["NOMBRE_GEO"])
-	}}).addTo(mymap);
-
-
-function cañosStyle(feature) {
-    return {
-        fillColor: 'blue',
-        weight: 2,
-        opacity: 1,
-        color: 'blue',
-        dashArray: '1',
-        fillOpacity: 1
-    };
-}
-    var  caños =L.geoJson(caños,{style: cañosStyle, onEachFeature: function(feature, layer){
-		layer.bindPopup(feature.properties["NOMBRE_GEO"])
-	}}).addTo(mymap);    
-
-    function senderoStyle(feature) {
-    return {
-        fillColor: 'red',
-        weight: 2,
-        opacity: 1,
-        color: 'red',
-        dashArray: '4',
-        fillOpacity: 0.1
-    };
-}
 
 function resguardos_guaviareStyle(feature){
             return {
@@ -120,6 +81,8 @@ function resguardos_guaviareStyle(feature){
 		layer.bindPopup(feature.properties["NOMBRE_RES"] + '<br>'+ '(' + feature.properties["PUEBLO"] +  ')')
 	}}).addTo(mymap);
 
+    var jiwLayer; 
+    
     function jiwStyle(feature){
             return {
                 fillColor : 'red',
@@ -149,7 +112,7 @@ function resguardos_guaviareStyle(feature){
 
     var lindosa =L.geoJson(lindosa,{style: lindosaStyle}).addTo(mymap); 
     
-
+    
 
 
     var chivaIcon = L.icon({
@@ -340,12 +303,81 @@ function resguardos_guaviareStyle(feature){
                 color: "#0C25FF",
                 fillColor: "#1FB323",
                 weight: 2,
-                layers: [caños],
+                layers: [cañosLayer],
                 inactive: false,
             }]
 }).addTo(mymap);
 
 
+var cañosLayer;
+
+
+function highlightFeature(e){
+    var layer = e.target; 
+    layer.setStyle(
+        { 
+        weight : 5 ,
+        color : '#8692FE',
+        fillColor : 'white',
+        fillOpacity : 0.1 
+        }
+    );
+    if(!L.Browser.ie && !L.Browser.opera){
+        layer.bringToFront();
+    }
+}
+
+function resetHighlight(e){
+    cañosLayer.resetStyle(e.target);
+}
+
+function zoomToFeature(e){
+    mymap.fitBounds(e.target.getBounds());
+}
+
+
+function cañosOnEachFeature(feature, layer){layer.bindPopup(feature.properties["NOMBRE_GEO"]),
+
+
+  
+    layer.on(
+        {
+            mouseover : highlightFeature,
+            mouseout : resetHighlight,
+        }
+    );
+}
+
+
+
+function cañosStyle(feature) {
+    return {
+        fillColor: 'blue',
+        weight: 2,
+        opacity: 1,
+        color: 'blue',
+        dashArray: '1',
+        fillOpacity: 1
+    };
+}
+
+
+var cañosLayer = L.geoJson(
+            caños,
+            {
+                style : cañosStyle,
+            onEachFeature : cañosOnEachFeature, 
+            }
+            ).addTo(mymap);
+
+
+            var rio = L.geoJson(
+            rio,
+            {
+                style : cañosStyle,
+            onEachFeature : cañosOnEachFeature, 
+            }
+            ).addTo(mymap);
 
 
 </script>
