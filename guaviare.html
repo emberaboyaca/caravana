@@ -16,6 +16,8 @@
     <script src="data/resguardos_jiw.geojson"></script>
     <script src="data/resguardos_jiw_1.geojson"></script>
     <script src="data/lindosa.geojson"></script>
+    <script src="data/drenaje_sencillo.geojson"></script>
+    <script src="data/rio_guaviare.geojson"></script>
 </head>
 <body>
 
@@ -35,6 +37,8 @@
 	maxZoom: 20,
 	attribution: '&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
+
+
     
     function guaviareStyle(feature) {
     return {
@@ -70,17 +74,28 @@
         fillOpacity: 0.1
     };
 }
-function petroleoStyle(feature) {
+function rioStyle(feature) {
     return {
-        fillColor: 'red',
+        fillColor: 'blue',
         weight: 2,
         opacity: 1,
-        color: 'black',
+        color: 'blue',
         dashArray: '1',
-        fillOpacity: 0.1
+        fillOpacity: 1
     };
 }
-    var petroleo =L.geoJson(petroleo,{style: petroleoStyle}).addTo(mymap);    
+    var  rio =L.geoJson(rio,{style: rioStyle}).addTo(mymap); 
+function cañosStyle(feature) {
+    return {
+        fillColor: 'blue',
+        weight: 2,
+        opacity: 1,
+        color: 'blue',
+        dashArray: '1',
+        fillOpacity: 1
+    };
+}
+    var  caños =L.geoJson(caños,{style: cañosStyle}).addTo(mymap);    
 
     function senderoStyle(feature) {
     return {
@@ -229,7 +244,7 @@ function resguardos_guaviareStyle(feature){
             '<b>Barranco Colorado /Karnüm/</b>',
             {minWidth:300}
         );
-        var point7 = [2.7571,-71.6598];
+        var point7 = [2.792346, -71.624067];
         var marker7 =L.marker(point7).addTo(mymap);
         var myMarker7 = L.marker(point7);
         myMarker7.addTo(mymap);
@@ -261,7 +276,7 @@ function resguardos_guaviareStyle(feature){
             '<b>Luna Roja </b> <p><a href= "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/assessments/260215%20Informe%20MIRA%20Luna%20Roja.pdf"</a>Documento</p><p><a href=https://www.wayuunaiki.com.ve/titulares/campesinos-vs-indigenas-la-pelea-por-las-tierras-en-meta-y-guaviare/"</a>noticia</p><p><a href=https://issuu.com/laavenida/docs/art2"</a>noticia</p></div>',
             {minWidth:300}
         );
-        var point11 = [2.60119,-72.98285];
+        var point11 = [2.620061, -72.825854];
         var greenIcon =L.marker(point11).addTo(mymap);
         var myMarker11 = L.marker(point11);
         myMarker11.addTo(mymap);
@@ -332,7 +347,7 @@ function resguardos_guaviareStyle(feature){
                 layers: [lindosa],
                 inactive: false,
             },{
-                label: "Resguardos indígenas",
+                label: "Resguardos indígenas vecinos",
                 type: "rectangle",
                 sides: 4,
                 color: "#000000",
