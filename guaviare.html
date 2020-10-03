@@ -94,8 +94,12 @@ function resguardos_guaviareStyle(feature){
             }
         }
 
-    var jiw = L.geoJson(jiw,{style : jiwStyle}).addTo(mymap);
-    var jiw_1 = L.geoJson(jiw_1,{style : jiwStyle}).addTo(mymap);
+    var jiw = L.geoJson(jiw,{style : jiwStyle,onEachFeature: function(feature, layer){
+		layer.bindPopup(feature.properties["NOMBRE_RES"])
+	}}).addTo(mymap);
+    var jiw_1 = L.geoJson(jiw_1,{style : jiwStyle,onEachFeature: function(feature, layer){
+		layer.bindPopup(feature.properties["NOMBRE_COM"])
+	}}).addTo(mymap);
 
        
             
@@ -319,7 +323,7 @@ function highlightFeature(e){
         weight : 5 ,
         color : '#8692FE',
         fillColor : 'white',
-        fillOpacity : 0.1 
+        fillOpacity : 0 
         }
     );
     if(!L.Browser.ie && !L.Browser.opera){
