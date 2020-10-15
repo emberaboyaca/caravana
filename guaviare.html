@@ -365,6 +365,14 @@ var puebloIcon = L.icon({
             '<b>Poligrow</b><p><a href="https://pbicolombiablog.org/2018/01/13/los-sikuani-y-los-jiw-luchan-por-la-madre-tierra/"</a>noticias ver pie paginas</p></div>',
             {minWidth:300}
         );
+	        var point17 = [3.012723, -72.204650];
+        var greenIcon =L.marker(point17,{icon: poligrowIcon}).addTo(mymap);
+        var myMarker17 = L.marker(point17, {icon: poligrowIcon});
+        myMarker17.addTo(mymap);
+        myMarker17.bindPopup(
+            '<b>Poligrow</b>',
+            {minWidth:300}
+        );
 
 
     var baseMaps = {
