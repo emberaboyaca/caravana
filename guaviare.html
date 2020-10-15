@@ -245,16 +245,16 @@ var puebloIcon = L.icon({
    
 
         var point2 = [2.546911, -72.682785];
-        var marker2 =L.marker(point2).addTo(mymap);
-        var myMarker2 = L.marker(point2);
+        var marker2 =L.marker(point2, {icon: jiwIcon}).addTo(mymap);
+        var myMarker2 = L.marker(point2, {icon: jiwIcon});
         myMarker2.addTo(mymap);
         myMarker2.bindPopup(
             '<b>La María /Wuej Lajt/</b>',
             {minWidth:300}
         );
         var point3 = [2.593308, -72.569382];
-        var marker3 =L.marker(point3).addTo(mymap);
-        var myMarker3 = L.marker(point3);
+        var marker3 =L.marker(point3, {icon: jiwIcon}).addTo(mymap);
+        var myMarker3 = L.marker(point3, {icon: jiwIcon});
         myMarker3.addTo(mymap);
         myMarker3.bindPopup(
             '<b>Barrancón /Bakam/</b> <p><a href="http://www.redcolombia.org/2012/11/28/jiw-la-agonia-de-un-pueblo/"</a> Artículo Redher </p></div>',
@@ -262,56 +262,56 @@ var puebloIcon = L.icon({
         );
 
         var point4 = [2.625139, -72.488952];
-        var marker4 =L.marker(point4).addTo(mymap);
-        var myMarker4 = L.marker(point4);
+        var marker4 =L.marker(point4, {icon: jiwIcon}).addTo(mymap);
+        var myMarker4 = L.marker(point4, {icon: jiwIcon});
         myMarker4.addTo(mymap);
         myMarker4.bindPopup(
             '<b>La Fuga /Char-on laja char-on/</b>',
             {minWidth:300}
         );
         var point5 = [2.739350, -72.510978];
-        var marker5 =L.marker(point5).addTo(mymap);
-        var myMarker5 = L.marker(point5);
+        var marker5 =L.marker(point5, {icon: jiwIcon}).addTo(mymap);
+        var myMarker5 = L.marker(point5, {icon: jiwIcon});
         myMarker5.addTo(mymap);
         myMarker5.bindPopup(
             '<b>Caño La Sal /Masal/</b><a href= "https://www.elespectador.com/noticias/medio-ambiente/jiw-un-pueblo-acorralado-en-su-territorio/"</a> Noticia Espectador</div>',
             {minWidth:300}
         );
         var point6 = [2.791188, -71.781079];
-        var marker6 =L.marker(point6).addTo(mymap);
-        var myMarker6 = L.marker(point6);
+        var marker6 =L.marker(point6, {icon: jiwIcon}).addTo(mymap);
+        var myMarker6 = L.marker(point6, {icon: jiwIcon});
         myMarker6.addTo(mymap);
         myMarker6.bindPopup(
             '<b>Barranco Colorado /Karnüm/</b>',
             {minWidth:300}
         );
         var point7 = [2.792346, -71.624067];
-        var marker7 =L.marker(point7).addTo(mymap);
-        var myMarker7 = L.marker(point7);
+        var marker7 =L.marker(point7,{icon: jiwIcon}).addTo(mymap);
+        var myMarker7 = L.marker(point7,{icon: jiwIcon});
         myMarker7.addTo(mymap);
         myMarker7.bindPopup(
             '<b>Barranco Ceiba /Nawel jalpa/</b>',
             {minWidth:300}
         );
         var point8 = [2.917086, -71.603338];
-        var greenIcon =L.marker(point8).addTo(mymap);
-        var myMarker8 = L.marker(point8);
+        var greenIcon =L.marker(point8, {icon: jiwIcon}).addTo(mymap);
+        var myMarker8 = L.marker(point8, {icon: jiwIcon});
         myMarker8.addTo(mymap);
         myMarker8.bindPopup(
             '<b>Mocuare /Makuer/</b>',
             {minWidth:300}
         );
         var point9 = [2.900489, -72.199459];
-        var greenIcon =L.marker(point9).addTo(mymap);
-        var myMarker9 = L.marker(point9);
+        var greenIcon =L.marker(point9, {icon: jiwIcon}).addTo(mymap);
+        var myMarker9 = L.marker(point9,{icon: jiwIcon});
         myMarker9.addTo(mymap);
         myMarker9.bindPopup(
             '<b>Zaragozas /Naexal Lajt/</b><div><p><a href="https://www.agenciadetierras.gov.co/wp-content/uploads/2019/08/ACUERDO-75.pdf"</a> Acuerdo No. 75 de 2018 </p></div>',
             {minWidth:300}
         );
         var point10 = [2.741731, -72.648567];
-        var greenIcon =L.marker(point10).addTo(mymap);
-        var myMarker10 = L.marker(point10);
+        var greenIcon =L.marker(point10,{icon: jiwIcon}).addTo(mymap);
+        var myMarker10 = L.marker(point10, {icon: jiwIcon});
         myMarker10.addTo(mymap);
         myMarker10.bindPopup(
             '<b>Luna Roja </b> <p><a href= "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/assessments/260215%20Informe%20MIRA%20Luna%20Roja.pdf"</a>Documento</p><p><a href=https://www.wayuunaiki.com.ve/titulares/campesinos-vs-indigenas-la-pelea-por-las-tierras-en-meta-y-guaviare/"</a>noticia</p><p><a href=https://issuu.com/laavenida/docs/art2"</a>noticia</p></div>',
@@ -412,7 +412,7 @@ var puebloIcon = L.icon({
         
     },
     {
-    label: "Asentamientos ancestrales Jiw",
+    label: "Asentamientos Jiw",
                 type: "image",
                 url: "images/jiw_icon.png",
                 layers: [myMarker],
