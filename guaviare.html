@@ -277,7 +277,7 @@ var puebloIcon = L.icon({
             '<b>Caño La Sal /Masal/</b><a href= "https://www.elespectador.com/noticias/medio-ambiente/jiw-un-pueblo-acorralado-en-su-territorio/"</a> Noticia Espectador</div>',
             {minWidth:300}
         );
-        var point6 = [2.791188, -71.781079];
+        var point6 = [2.780166, -71.792221];
         var marker6 =L.marker(point6, {icon: jiwIcon}).addTo(mymap);
         var myMarker6 = L.marker(point6, {icon: jiwIcon});
         myMarker6.addTo(mymap);
@@ -322,7 +322,7 @@ var puebloIcon = L.icon({
         var myMarker11 = L.marker(point11, {icon: jiwIcon});
         myMarker11.addTo(mymap);
         myMarker11.bindPopup(
-            '<b>Ceiba territoiro ancestral </b> <p><a href= "https://www.eltiempo.com/archivo/documento/CMS-13674177"</a>Noticia El Tiempo</p><a href="https://infoamazonia.org/es/2019/08/espanol-la-tierra-de-los-jiw-en-guaviare-se-acaba-a-manos-de-colonos-militares-y-grupos-ilegales/#!/map=51549&story=post-20126"</a>Documento <p><a href=https://www.parquesnacionales.gov.co/portal/es/ecoturismo/region-amazonia-y-orinoquia/parque-nacional-natural-sierra-de-la-macarena/comunidades/"</a> PNN La Macarena </p></div>',
+            '<b>Ceiba territoiro ancestral /Papur lajt/</b> <p><a href= "https://www.eltiempo.com/archivo/documento/CMS-13674177"</a>Noticia El Tiempo</p><a href="https://infoamazonia.org/es/2019/08/espanol-la-tierra-de-los-jiw-en-guaviare-se-acaba-a-manos-de-colonos-militares-y-grupos-ilegales/#!/map=51549&story=post-20126"</a>Documento <p><a href=https://www.parquesnacionales.gov.co/portal/es/ecoturismo/region-amazonia-y-orinoquia/parque-nacional-natural-sierra-de-la-macarena/comunidades/"</a> PNN La Macarena </p></div>',
             {minWidth:300}
         );
         var point12 = [3.030719, -70.256775];
@@ -365,14 +365,37 @@ var puebloIcon = L.icon({
             '<b>Poligrow</b><p><a href="https://pbicolombiablog.org/2018/01/13/los-sikuani-y-los-jiw-luchan-por-la-madre-tierra/"</a>noticias ver pie paginas</p></div>',
             {minWidth:300}
         );
-	        var point17 = [2.867680, -72.102067];
+	        var point17 = [2.908576, -72.089267];
         var greenIcon =L.marker(point17,{icon: poligrowIcon}).addTo(mymap);
         var myMarker17 = L.marker(point17, {icon: poligrowIcon});
         myMarker17.addTo(mymap);
         myMarker17.bindPopup(
-            '<b>Poligrow</b>',
+            '<b>Planta de extracción de Poligrow y lugar donde se busca constituir una Zona Franca Permanente Especial</b>',
             {minWidth:300}
         );
+        var point18 = [2.574419, -72.76803];
+        var greenIcon =L.marker(point18,{icon: jiwIcon}).addTo(mymap);
+        var myMarker18 = L.marker(point18, {icon: jiwIcon});
+        myMarker18.addTo(mymap);
+        myMarker18.bindPopup(
+            '<b>Puerto Arturo /Kanow xaówax/</b>',
+            {minWidth:300}
+        );
+        var point19 = [2.586401, -72.598579];
+        var greenIcon =L.marker(point19,{icon: jiwIcon}).addTo(mymap);
+        var myMarker19 = L.marker(point19, {icon: jiwIcon});
+        myMarker19.addTo(mymap);
+        myMarker19.bindPopup(
+            '<b>Bocas de Aguabonita /Katon lajt/</b>',
+            {minWidth:300}
+        );
+
+        var circle = L.circle([3.072315, -73.278494], {
+        color: 'red',
+         fillColor: '#f03',
+         fillOpacity: 0.5,
+         radius: 22000
+        }).addTo(mymap).bindPopup("Territorio ancestral");
 
 
     var baseMaps = {
