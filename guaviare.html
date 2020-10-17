@@ -23,6 +23,7 @@
     <script src="data/caño_mina.geojson"></script>
     <script src="data/pretenciones_etnicas.geojson"></script>
     <script src="data/poligrow.geojson"></script>
+    <script src="data/campesina.geojson"></script>
 
 </head>
 <body>
@@ -66,6 +67,17 @@
 }
     var guaviare =L.geoJson(guaviare,{style: guaviareStyle}).addTo(mymap);   
 
+    function campesinaStyle(feature) {
+    return {
+        fillColor: '#2D98FD',
+        weight: 2,
+        opacity: 1,
+        color: 'black',
+        dashArray: '1',
+        fillOpacity: 0.1
+    };
+}
+    var campesina =L.geoJson(campesina,{style: campesinaStyle}).addTo(mymap);   
     
     function metaStyle(feature) {
     return {
@@ -429,9 +441,26 @@ var puebloIcon = L.icon({
         
     },
     {
+            label: "Zona de reserva campesina",
+                type: "rectangle",
+                sides: 4,
+                color: "#000000",
+                fillColor: "#ACD0F1",
+                weight: 2,
+                layers: [campesina],
+                inactive: false,
+        
+    },
+    {
         label: "Centros poblados",
                 type: "image",
                 url: "images/pueblo.png",
+        
+    },
+    {
+        label: "Poligrow",
+                type: "image",
+                url: "images/poligrow.png",
         
     },
     {
