@@ -183,6 +183,15 @@ function resguardos_guaviareStyle(feature){
     iconAnchor:   [20, 58], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+var ejercitoIcon = L.icon({
+    iconUrl: './images/ejercito_icon.png',
+
+
+    iconSize:     [60, 61], // size of the icon
+    shadowSize:   [70, 61], // size of the shadow
+    iconAnchor:   [20, 58], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 var poligrowIcon = L.icon({
     iconUrl: './images/poligrow.png',
 
@@ -251,6 +260,79 @@ var puebloIcon = L.icon({
         myMarker03.addTo(mymap);
         myMarker03.bindPopup(
             '<b>Puerto Concordia</b>',
+            {minWidth:300}
+        );
+        var point04 = [2.743044, -72.438011];
+        var marker04 =L.marker(point04,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker04 = L.marker(point04, {icon: puebloIcon});
+        myMarker04.addTo(mymap);
+        myMarker04.bindPopup(
+            '<b>El Mielón</b>',
+            {minWidth:300}
+        );
+        var point05 = [2.62087, -72.329586];
+        var marker05 =L.marker(point05,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker05 = L.marker(point05, {icon: puebloIcon});
+        myMarker05.addTo(mymap);
+        myMarker05.bindPopup(
+            '<b>El Boquerón</b>',
+            {minWidth:300}
+        );
+        var point06 = [2.816386, -71.790032];
+        var marker06 =L.marker(point06,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker06 = L.marker(point06, {icon: puebloIcon});
+        myMarker06.addTo(mymap);
+        myMarker06.bindPopup(
+            '<b>Cumaré</b>',
+            {minWidth:300}
+        );
+        var point07 = [2.869086, -71.532626];
+        var marker07 =L.marker(point07,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker07 = L.marker(point07, {icon: puebloIcon});
+        myMarker07.addTo(mymap);
+        myMarker07.bindPopup(
+            '<b>Mocuare</b>',
+            {minWidth:300}
+        );
+        var point08 = [2.546176, -72.481989];
+        var marker08 =L.marker(point08,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker08 = L.marker(point08, {icon: puebloIcon});
+        myMarker08.addTo(mymap);
+        myMarker08.bindPopup(
+            '<b>El Resbalón</b>',
+            {minWidth:300}
+        );
+   
+        var point09 = [2.580657, -72.588387];
+        var marker09 =L.marker(point09,{icon: ejercitoIcon} ).addTo(mymap);
+        var myMarker09 = L.marker(point09, {icon: ejercitoIcon});
+        myMarker09.addTo(mymap);
+        myMarker09.bindPopup(
+            '<b>Escuela de Fuerzas Especiales de Infantería y Marina</b>',
+            {minWidth:300}
+        );
+        var point010 = [2.578888, -72.865813];
+        var marker010 =L.marker(point010,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker010 = L.marker(point010, {icon: puebloIcon});
+        myMarker010.addTo(mymap);
+        myMarker010.bindPopup(
+            '<b>Bocas del Raudal</b>',
+            {minWidth:300}
+        );
+        var point011 = [2.523464, -72.951815];
+        var marker011 =L.marker(point011,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker011 = L.marker(point011, {icon: puebloIcon});
+        myMarker011.addTo(mymap);
+        myMarker011.bindPopup(
+            '<b>Bellavista</b>',
+            {minWidth:300}
+        );
+        var point012 = [2.464994, -72.931001];
+        var marker012 =L.marker(point012,{icon: puebloIcon} ).addTo(mymap);
+        var myMarker012 = L.marker(point012, {icon: puebloIcon});
+        myMarker012.addTo(mymap);
+        myMarker012.bindPopup(
+            '<b>La Carpa</b>',
             {minWidth:300}
         );
    
@@ -398,7 +480,7 @@ var puebloIcon = L.icon({
         var myMarker19 = L.marker(point19, {icon: jiwIcon});
         myMarker19.addTo(mymap);
         myMarker19.bindPopup(
-            '<b>Bocas de Aguabonita /Katon lajt/</b>',
+            '<b>Bocas de Aguabonita /Katon lajt/ asentamiento ancestral</b>',
             {minWidth:300}
         );
 
@@ -508,6 +590,33 @@ var puebloIcon = L.icon({
                 fillColor: "#1FB323",
                 weight: 2,
                 layers: [resguardos_guaviare, pretenciones],
+                inactive: false,
+            }, {
+                label: "Ríos Principales",
+                type: "polyline",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#1FB323",
+                weight: 4,
+                layers: [rio],
+                inactive: false,
+            },{
+                label: "Caños",
+                type: "polyline",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#1FB323",
+                weight: 2,
+                layers: [cañosLayer],
+                inactive: false,
+            }, {
+                label: "Lagunas",
+                type: "rectangle",
+                sides: 4,
+                color: "#0C25FF",
+                fillColor: "#0C25FF",
+                weight: 2,
+                layers: [cañosLayer],
                 inactive: false,
             }]
 }).addTo(mymap);
