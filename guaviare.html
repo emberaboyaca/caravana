@@ -131,7 +131,7 @@ function resguardos_guaviareStyle(feature){
 		layer.bindPopup(feature.properties["NOMBRE_RES"] + '<br>'+ '(' + feature.properties["PUEBLO"] +  ')')
 	}}).addTo(mymap);
     var pretenciones = L.geoJson(pretenciones,{style : pretencionesStyle, onEachFeature: function(feature, layer){
-		layer.bindPopup(feature.properties["NOMBRE_COM"] + '<br>'+ 'en proceso de ANT')
+		layer.bindPopup(feature.properties["NOMBRE_COM"] + '<br>'+ ', sikuani, en proceso de ANT')
 	}}).addTo(mymap);
 
     var jiwLayer; 
