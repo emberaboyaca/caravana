@@ -21,6 +21,7 @@
     <script src="data/rio_guaviare.geojson"></script>
     <script src="data/lagunas.geojson"></script>
     <script src="data/caño_mina.geojson"></script>
+    <script src="data/caño_prorio.geojson"></script>
     <script src="data/pretenciones_etnicas.geojson"></script>
     <script src="data/poligrow.geojson"></script>
     <script src="data/campesina.geojson"></script>
@@ -131,7 +132,7 @@ function resguardos_guaviareStyle(feature){
 		layer.bindPopup(feature.properties["NOMBRE_RES"] + '<br>'+ '(' + feature.properties["PUEBLO"] +  ')')
 	}}).addTo(mymap);
     var pretenciones = L.geoJson(pretenciones,{style : pretencionesStyle, onEachFeature: function(feature, layer){
-		layer.bindPopup(feature.properties["NOMBRE_COM"] + '<br>'+ ', sikuani, en proceso de ANT')
+		layer.bindPopup(feature.properties["NOMBRE_COM"] + '<br>'+ 'en proceso de ANT')
 	}}).addTo(mymap);
 
     var jiwLayer; 
@@ -400,7 +401,7 @@ var puebloIcon = L.icon({
         var myMarker9 = L.marker(point9,{icon: jiwIcon});
         myMarker9.addTo(mymap);
         myMarker9.bindPopup(
-            '<b>Zaragozas /Naexal Lajt/</b><div><p><a href="https://www.agenciadetierras.gov.co/wp-content/uploads/2019/08/ACUERDO-75.pdf"</a> Acuerdo 75 de 2018 ANT </p></div>',
+            '<b>Zaragozas /Naexal Lajt/</b><div><p><a href="https://www.agenciadetierras.gov.co/wp-content/uploads/2019/08/ACUERDO-75.pdf"</a> Acuerdo No. 75 de 2018 </p></div>',
             {minWidth:300}
         );
         var point10 = [2.741731, -72.648567];
@@ -408,7 +409,7 @@ var puebloIcon = L.icon({
         var myMarker10 = L.marker(point10, {icon: jiwIcon});
         myMarker10.addTo(mymap);
         myMarker10.bindPopup(
-            '<b>Luna Roja /resguardo Naexil Put/</b> <p><a href= "https://www.agenciadetierras.gov.co/wp-content/uploads/2017/11/ACUERDO-30-RESGUARDO-INDIGENA-NAEXIL-PUT-DE-LA-ETNIA-JIW.pdf"</a>Acuerdo 30 de 2017 ANT</p><p><p><a href= "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/assessments/260215%20Informe%20MIRA%20Luna%20Roja.pdf"</a>Documento</p><p><a href=https://www.wayuunaiki.com.ve/titulares/campesinos-vs-indigenas-la-pelea-por-las-tierras-en-meta-y-guaviare/"</a>noticia</p><p><a href=https://issuu.com/laavenida/docs/art2"</a>noticia</p></div>',
+            '<b>Luna Roja </b> <p><a href= "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/assessments/260215%20Informe%20MIRA%20Luna%20Roja.pdf"</a>Documento</p><p><a href=https://www.wayuunaiki.com.ve/titulares/campesinos-vs-indigenas-la-pelea-por-las-tierras-en-meta-y-guaviare/"</a>noticia</p><p><a href=https://issuu.com/laavenida/docs/art2"</a>noticia</p></div>',
             {minWidth:300}
         );
         var point11 = [2.558803, -72.923877];
@@ -416,7 +417,7 @@ var puebloIcon = L.icon({
         var myMarker11 = L.marker(point11, {icon: jiwIcon});
         myMarker11.addTo(mymap);
         myMarker11.bindPopup(
-            '<b>Ceiba territorio ancestral /Papur lajt/, abandonado por el conflicto</b> <p><a href= "https://www.eltiempo.com/archivo/documento/CMS-13674177"</a>Noticia El Tiempo</p><a href="https://infoamazonia.org/es/2019/08/espanol-la-tierra-de-los-jiw-en-guaviare-se-acaba-a-manos-de-colonos-militares-y-grupos-ilegales/#!/map=51549&story=post-20126"</a>Documento <p><a href=https://www.parquesnacionales.gov.co/portal/es/ecoturismo/region-amazonia-y-orinoquia/parque-nacional-natural-sierra-de-la-macarena/comunidades/"</a> PNN La Macarena </p></div>',
+            '<b>Ceiba territorio ancestral /Papur lajt/</b> <p><a href= "https://www.eltiempo.com/archivo/documento/CMS-13674177"</a>Noticia El Tiempo</p><a href="https://infoamazonia.org/es/2019/08/espanol-la-tierra-de-los-jiw-en-guaviare-se-acaba-a-manos-de-colonos-militares-y-grupos-ilegales/#!/map=51549&story=post-20126"</a>Documento <p><a href=https://www.parquesnacionales.gov.co/portal/es/ecoturismo/region-amazonia-y-orinoquia/parque-nacional-natural-sierra-de-la-macarena/comunidades/"</a> PNN La Macarena </p></div>',
             {minWidth:300}
         );
         var point12 = [3.030719, -70.256775];
@@ -432,7 +433,7 @@ var puebloIcon = L.icon({
         var myMarker13 = L.marker(point13, {icon: jiwIcon});
         myMarker13.addTo(mymap);
         myMarker13.bindPopup(
-            '<b><p>Caño Mina, asentamiento ancestral abandonado por conflicto</p></div>',
+            '<b><p>Caño Mina, asentamiento ancestral</p></div>',
             {minWidth:300}
         );
         var point14 = [2.897070, -72.141329];
@@ -440,7 +441,7 @@ var puebloIcon = L.icon({
         var myMarker14 = L.marker(point14, {icon: jiwIcon});
         myMarker14.addTo(mymap);
         myMarker14.bindPopup(
-            '<b><p>Chewn, asentamiento ancestral</p></div>',
+            '<b><p>Chewn</p></div>',
             {minWidth:300}
         );
         var point15 = [2.573993, -72.643753];
@@ -448,7 +449,7 @@ var puebloIcon = L.icon({
         var myMarker15 = L.marker(point15, {icon: jiwIcon});
         myMarker15.addTo(mymap);
         myMarker15.bindPopup(
-            '<b><p>Mató, asentamiento ancestral</p></div>',
+            '<b><p>Mató</p></div>',
             {minWidth:300}
         );
         var point16 = [3.012723, -72.204650];
@@ -472,7 +473,7 @@ var puebloIcon = L.icon({
         var myMarker18 = L.marker(point18, {icon: jiwIcon});
         myMarker18.addTo(mymap);
         myMarker18.bindPopup(
-            '<b>Puerto Arturo /Kanow xaówax/ asentamiento ancestral</b>',
+            '<b>Puerto Arturo /Kanow xaówax/</b>',
             {minWidth:300}
         );
         var point19 = [2.586401, -72.598579];
@@ -483,16 +484,13 @@ var puebloIcon = L.icon({
             '<b>Bocas de Aguabonita /Katon lajt/ asentamiento ancestral</b>',
             {minWidth:300}
         );
-	var point20 = [2.720411, -72.282465];
-        var greenIcon =L.marker(point20,{icon: puebloIcon}).addTo(mymap);
-        var myMarker20 = L.marker(point20, {icon: puebloIcon});
-        myMarker20.addTo(mymap);
-        myMarker20.bindPopup(
-            '<b>Inspección Sábanas de La Fuga</b>',
-            {minWidth:300}
-        );
 
-
+        var circle = L.circle([3.072315, -73.278494], {
+        color: 'red',
+         fillColor: '#f03',
+         fillOpacity: 0.5,
+         radius: 22000
+        }).addTo(mymap).bindPopup("Territorio ancestral");
 
 
     var baseMaps = {
@@ -668,6 +666,14 @@ var cañosLayer = L.geoJson(
             }
             ).addTo(mymap);
 
+            var prorio = L.geoJson(
+            prorio,
+            {
+                style : cañosStyle,
+            onEachFeature : cañosOnEachFeature, 
+            }
+            ).addTo(mymap);
+
             var mina = L.geoJson(
             mina,
             {
@@ -675,7 +681,6 @@ var cañosLayer = L.geoJson(
             onEachFeature : cañosOnEachFeature, 
             }
             ).addTo(mymap);
-
 
             var lagunas = L.geoJson(
             lagunas,
